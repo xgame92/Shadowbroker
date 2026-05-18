@@ -747,7 +747,7 @@ export default function MessagesView({ onBack, onOpenDeadDrop }: MessagesViewPro
   const [selectedFolder, setSelectedFolder] = useState<MailFolder>('inbox');
   const [selectedMailId, setSelectedMailId] = useState<string>('');
   const [messages, setMessages] = useState<MailItem[]>(ensureSeedMail([]));
-  const [contacts, setContacts] = useState<Record<string, Contact>>({});
+  const [contacts, setContacts] = useState<Record<string, Contact>>(() => getContacts());
   const [identity, setIdentity] = useState<NodeIdentity | null>(null);
   const [secureRequired, setSecureRequired] = useState(false);
   const [wormholeReadyState, setWormholeReadyState] = useState(false);
